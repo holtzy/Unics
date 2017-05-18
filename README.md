@@ -5,7 +5,7 @@
 Overview
 --------
 [**UNICS**](http://www.agap-sunshine.inra.fr/unics/) is a **web app** that helps you computing the standard error of allele frequency estimations of future pool-sequencing experiments based on different parameters (the number of individuals sampled, the frequency of the allele, the coefficient of variation of individual contributions to the DNA pool, the mean and dispersion in sequencing depth).
-You can use it trough the [**online version**](http://www.agap-sunshine.inra.fr/unics/) and read the related publication in [**plosOne**](https://academic.oup.com/bioinformatics/article-abstract/33/9/1387/2908431/The-genetic-map-comparator-a-user-friendly?redirectedFrom=fulltext).  
+You can use it trough the [**online version**](http://www.agap-sunshine.inra.fr/unics/) and read the related publication in [**press**](www.r-graph-gallery.com).  
     
 Here is a screenshot of the main sheets of the app:
 ![fig1](www/screenshot.png)
