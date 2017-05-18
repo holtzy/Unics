@@ -4,7 +4,7 @@
 
 Overview
 --------
-UNICS is a web app that helps you computing the standard error of allele frequency estimations of future pool-sequencing experiments based on different parameters (the number of individuals sampled, the frequency of the allele, the coefficient of variation of individual contributions to the DNA pool, the mean and dispersion in sequencing depth).
+[**UNICS**](http://www.agap-sunshine.inra.fr/unics/) is a **web app** that helps you computing the standard error of allele frequency estimations of future pool-sequencing experiments based on different parameters (the number of individuals sampled, the frequency of the allele, the coefficient of variation of individual contributions to the DNA pool, the mean and dispersion in sequencing depth).
 You can use it trough the [**online version**](http://www.agap-sunshine.inra.fr/unics/) and read the related publication in [**plosOne**](https://academic.oup.com/bioinformatics/article-abstract/33/9/1387/2908431/The-genetic-map-comparator-a-user-friendly?redirectedFrom=fulltext).  
     
 Here is a screenshot of the main sheets of the app:
@@ -33,6 +33,7 @@ Since local use shows problems for microsoft users, you can install the Genetic 
 ```
 library(shiny)
 library(tidyverse)
+library(shinyWidgets)
 ```
 
 If you miss a library, remember you can install it with:
@@ -51,10 +52,10 @@ runApp()
 Citing 
 --------
 If you find this application useful, please cite:  
-How to optimize the precision of allele and haplotype frequency estimates using pooled-sequencing data  
-Nicolas O. Rode*†, Yan Holtz*, Karine Loridon*, Sylvain Santoni*, Joëlle Ronfort* & Laurène Gay*
-* INRA, UMR AGAP, F-34060 Montpellier, France
-† Current address: INRA, UMR CBGP (INRA – IRD – Cirad – Montpellier SupAgro), Campus international de Baillarguet, CS 30016, F-34988, Montferrier-sur-Lez, France
+**How to optimize the precision of allele and haplotype frequency estimates using pooled-sequencing data**    
+Nicolas O. Rode, Yan Holtz, Karine Loridon, Sylvain Santoni, Joëlle Ronfort & Laurène Gay  
+INRA, UMR AGAP, F-34060 Montpellier, France
+Current address: INRA, UMR CBGP (INRA – IRD – Cirad – Montpellier SupAgro), Campus international de Baillarguet, CS 30016, F-34988, Montferrier-sur-Lez, France
 
 
 About us
@@ -68,11 +69,6 @@ Joëlle Ronfort: [contact](http://www1.montpellier.inra.fr/BRC-MTR/mauguio/maugu
 Laurène Gay: [homepage](https://www.sites.google.com/site/evolutionarybiologylaurenegay/)  
   
 We would like to thank **Cédric Goby** for his help during the shiny server deployment.
-
-
-
-—
-FreqUneqDNApool Web App v1.0.0. Last Updated: 09-May-2017
 
 
 
