@@ -75,13 +75,16 @@ shinyUI(bootstrapPage(
 			helpText( HTML("Allele frequency") , style="color:Orange ; font-family: 'times'; font-size:20pt ; font-type:bold") ,
 			helpText( HTML("(&pi;)") , style="color:Orange ; font-family: 'times'; font-size:20pt ; font-type:bold" ),
 			
+				
+			
 			# Pi (3 valeurs)
 			fluidRow(align="center",
-				column(offset=2,3,textInput("Pi_g1_1", label=HTML("&pi; (val1)"), value=0.1)),
-				column(3,textInput("Pi_g1_2", label=HTML("&pi; (val2)"), value=0.25)),
-				column(3,textInput("Pi_g1_3", label=HTML("&pi; (val3)"), value=0.5))
+				column(1, dropdownButton(  circle = TRUE, status = "success", icon = icon("question"), width = "300px", "Nico ici explique ce qu'est Pi")),
+				column(offset=1,3,textInput("Pi_g1_1", label=strong(HTML("&pi;"),style="color:red"), value=0.1)),
+				column(3,textInput("Pi_g1_2", label=strong(HTML("&pi;"),style="color:green"), value=0.25)),
+				column(3,textInput("Pi_g1_3", label=strong(HTML("&pi;"),style="color:blue"), value=0.5))
 				),
-			dropdownButton(  circle = TRUE, status = "success", icon = icon("question"), width = "300px", "Nico ici explique ce qu'est Pi"),			        		
+						        		
 			column(offset=3,6,hr()),
 			
 			conditionalPanel("input.showoption == 1",
@@ -122,11 +125,11 @@ shinyUI(bootstrapPage(
 
 			# CV (3 valeurs)
 			fluidRow(align="center",
-				column(offset=2,3,textInput("CV_g2_1", label="CV (val1)", value=10)),
-				column(3,textInput("CV_g2_2", label=HTML("CV (val2)"), value=20)),
-				column(3,textInput("CV_g2_3", label=HTML("CV (val3)"), value=50))        		
+				column(1, dropdownButton(  circle = TRUE, status = "success", icon = icon("question"), width = "300px", "Nico ici explique ce qu'est CV")),
+				column(offset=1,3,textInput("CV_g2_1", label=strong("CV",style="color:red"), value=10)),
+				column(3,textInput("CV_g2_2", label=strong("CV",style="color:green"), value=20)),
+				column(3,textInput("CV_g2_3", label=strong("CV",style="color:blue"), value=50))        		
 				),
-			dropdownButton(  circle = TRUE, status = "success", icon = icon("question"), width = "300px", "Nico ici explique ce qu'est CV"),			        		
 			column(offset=3,6,hr()),
 			
 			conditionalPanel("input.showoption == 1",
@@ -160,18 +163,18 @@ shinyUI(bootstrapPage(
 
 
 
-		# ------- Colonne 3
+		# ------- Colonne 3 (alpha)
 		column(3,
 			helpText( HTML("Dispersion in sequencing") , style="color:Orange ; font-family: 'times'; font-size:20pt ; font-type:bold") ,
 			helpText( HTML("depth (&alpha;)") , style="color:Orange ; font-family: 'times'; font-size:20pt ; font-type:bold") ,
 
 			# Alpha (3 valeurs)
 			fluidRow(align="center",
-				column(offset=2,3,textInput("Alpha_g3_1", label=HTML("&alpha; (val1)"), value=0.1)),
-				column(3,textInput("Alpha_g3_2", label=HTML("&alpha; (val2)"), value=0.25)),
-				column(3,textInput("Alpha_g3_3", label=HTML("&alpha; (val3)"), value=0.5))        		
+				column(1, dropdownButton(  circle = TRUE, status = "success", icon = icon("question"), width = "300px", "Nico ici explique ce qu'est Alpha")),
+				column(offset=1,3,textInput("Alpha_g3_1", label=strong(HTML("&alpha;"),style="color:red"), value=0.1)),
+				column(3,textInput("Alpha_g3_2", label=strong(HTML("&alpha;"),style="color:green"), value=0.25)),
+				column(3,textInput("Alpha_g3_3", label=strong(HTML("&alpha;"),style="color:blue"), value=0.5))        		
 				),
-			dropdownButton(  circle = TRUE, status = "success", icon = icon("question"), width = "300px", "Nico ici explique ce qu'est Alpha"),			        		
 			column(offset=3,6,hr()),
 			
 			conditionalPanel("input.showoption == 1",
@@ -210,11 +213,11 @@ shinyUI(bootstrapPage(
 			
 			# Lambda (3 valeurs)
 			fluidRow(align="center",
-				column(offset=2,3,textInput("LambdaPool_g4_1", label=HTML("&lambda; (val1)"), value=5)),
-				column(3,textInput("LambdaPool_g4_2", label=HTML("&lambda; (val2)"), value=10)),
-				column(3,textInput("LambdaPool_g4_3", label=HTML("&lambda; (val3)"), value=100))        		
+				column(1, dropdownButton(  circle = TRUE, status = "success", icon = icon("question"), width = "300px", "Nico ici explique ce qu'est Lambda")),
+				column(offset=1,3,textInput("LambdaPool_g4_1", label=strong(HTML("&lambda;"),style="color:red"), value=5)),
+				column(3,textInput("LambdaPool_g4_2", label=strong(HTML("&lambda;"),style="color:green"), value=10)),
+				column(3,textInput("LambdaPool_g4_3", label=strong(HTML("&lambda;"),style="color:blue"), value=100))        		
 				),
-			dropdownButton(  circle = TRUE, status = "success", icon = icon("question"), width = "300px", "Nico ici explique ce qu'est Lambda"),			        		
 			column(offset=3,6,hr()),
 			
 			conditionalPanel("input.showoption == 1",
@@ -260,7 +263,7 @@ shinyUI(bootstrapPage(
 		style=" opacity: 0.8 ; background-color: black ; margin-top: 0px ; width: 100%; ",
 	
 		# put the logos
-		br(),
+		br(),br(),
 		column(4, offset=0, align="center", 
 			column(4, img(src="logo_INRA.png" ,  height = 70*grand, width = 120*grand)),
 			column(4, img(src="logo_SUPAGRO.jpg" ,  height = 70*grand, width = 130*grand)),
@@ -292,9 +295,11 @@ shinyUI(bootstrapPage(
 			helpText("Read the related publication [in Press]", style="color:white ; font-family: 'times'; font-size:12pt ; font-type:normal"),
 			
 			helpText("Source code is on",a("Github", style="color:orange ; font-size:12pt", href = "https://github.com/holtzy/Unics" , target="_blank"), style="color:white ; font-family: 'times'; font-size:12pt ; font-type:normal")
-			) 
+			)
        		
-		)
+		),
+	fluidRow( style=" opacity: 0.8 ; background-color: black ; margin-top: 0px ; width: 100%; ", br(), br())
+
 	# -------------------------------------------------------------------------------------
 
 

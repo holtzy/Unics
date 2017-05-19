@@ -48,8 +48,8 @@ shinyServer(function(input, output) {
 	# plot
 	ggplot(data.frame(x=c(N1, N2)), aes(x)) +  
 		stat_function(fun=my_fun , size = 1.5) +
-		theme( legend.position = c(.83, .9), legend.title=element_blank(), axis.text.x =element_text(color = "black", size = cextextaxis),axis.text.y =element_text(color = "black", size = cextextaxis),axis.title.x = element_text(face="bold", colour="black", size=cextitleaxis),axis.title.y = element_text(face="bold", colour="black", size=cextitleaxis) )+
-      	scale_y_continuous("SE pool / SE individual") + #,limits = c(0.5, 1.5)) +
+		theme(legend.text=element_text(size=15), legend.position = c(.83, .9), legend.title=element_blank(), axis.text.x =element_text(color = "black", size = cextextaxis),axis.text.y =element_text(color = "black", size = cextextaxis),axis.title.x = element_text(face="bold", colour="black", size=cextitleaxis),axis.title.y = element_text(face="bold", colour="black", size=cextitleaxis) )+
+      	scale_y_continuous("SE pool / SE individual",limits = c(0.9, 1.1)) +
       	scale_x_continuous("")
   })
 
@@ -78,13 +78,15 @@ shinyServer(function(input, output) {
 	}
 
 	# plot
+	my.labs <- list(bquote(Pi==.(Pi1)) , bquote(Pi==.(Pi2)) , bquote(Pi==.(Pi3)) )
 	ggplot(data.frame(x=c(N1, N2)), aes(x)) +  
 		stat_function(fun=my_fun, args=list(Pi=Pi1),  aes(colour = paste("Pi = ",Pi1,sep="")), size = 1.5) +
 		stat_function(fun=my_fun, args=list(Pi=Pi2),  aes(colour = paste("Pi = ",Pi2,sep="")), size = 1.5) +
 		stat_function(fun=my_fun, args=list(Pi=Pi3),  aes(colour = paste("Pi = ",Pi3,sep="")), size = 1.5) +
-		theme( legend.position = c(.83, .9), legend.title=element_blank(), axis.text.x =element_text(color = "black", size = cextextaxis),axis.text.y =element_text(color = "black", size = cextextaxis),axis.title.x = element_text(face="bold", colour="black", size=cextitleaxis),axis.title.y = element_text(face="bold", colour="black", size=cextitleaxis) )+
-		  scale_y_continuous("Standard error in haplotype frequency estimate",limits = c(0, 0.5)) +
-		  scale_x_continuous("Sample size (N)")
+		theme(legend.text=element_text(size=15), legend.position = c(.83, .9), legend.title=element_blank(), axis.text.x =element_text(color = "black", size = cextextaxis),axis.text.y =element_text(color = "black", size = cextextaxis),axis.title.x = element_text(face="bold", colour="black", size=cextitleaxis),axis.title.y = element_text(face="bold", colour="black", size=cextitleaxis) )+
+		scale_y_continuous("Standard error in haplotype frequency estimate",limits = c(0, 0.5)) +
+		scale_x_continuous("Sample size (N)") +
+	  	scale_colour_manual(values=my_colors, labels=my.labs)
 
   })
   
@@ -129,8 +131,8 @@ shinyServer(function(input, output) {
 		stat_function(fun=my_fun, args=list(CV=CV1),  aes(colour = paste("CV = ",CV1,sep="")), size = 1.5) +
 		stat_function(fun=my_fun, args=list(CV=CV2),  aes(colour = paste("CV = ",CV2,sep="")), size = 1.5) +
 		stat_function(fun=my_fun, args=list(CV=CV3),  aes(colour = paste("CV = ",CV3,sep="")), size = 1.5) +
-		theme( legend.position = c(.83, .9), legend.title=element_blank(), axis.text.x =element_text(color = "black", size = cextextaxis),axis.text.y =element_text(color = "black", size = cextextaxis),axis.title.x = element_text(face="bold", colour="black", size=cextitleaxis),axis.title.y = element_text(face="bold", colour="black", size=cextitleaxis) )+
-      scale_y_continuous("") + #,limits = c(0.5, 1.5)) +
+		theme(legend.text=element_text(size=15), legend.position = c(.83, .9), legend.title=element_blank(), axis.text.x =element_text(color = "black", size = cextextaxis),axis.text.y =element_text(color = "black", size = cextextaxis),axis.title.x = element_text(face="bold", colour="black", size=cextitleaxis),axis.title.y = element_text(face="bold", colour="black", size=cextitleaxis) )+
+      scale_y_continuous("",limits = c(0.9, 1.1)) +
       scale_x_continuous("")
   })
 
@@ -164,7 +166,7 @@ shinyServer(function(input, output) {
 		stat_function(fun=my_fun, args=list(CV=CV1),  aes(colour = paste("CV = ",CV1,sep="")), size = 1.5) +
 		stat_function(fun=my_fun, args=list(CV=CV2),  aes(colour = paste("CV = ",CV2,sep="")), size = 1.5) +
 		stat_function(fun=my_fun, args=list(CV=CV3),  aes(colour = paste("CV = ",CV3,sep="")), size = 1.5) +
-		theme( legend.position = c(.83, .9), legend.title=element_blank(), axis.text.x =element_text(color = "black", size = cextextaxis),axis.text.y =element_text(color = "black", size = cextextaxis),axis.title.x = element_text(face="bold", colour="black", size=cextitleaxis),axis.title.y = element_text(face="bold", colour="black", size=cextitleaxis) )+
+		theme(legend.text=element_text(size=15), legend.position = c(.83, .9), legend.title=element_blank(), axis.text.x =element_text(color = "black", size = cextextaxis),axis.text.y =element_text(color = "black", size = cextextaxis),axis.title.x = element_text(face="bold", colour="black", size=cextitleaxis),axis.title.y = element_text(face="bold", colour="black", size=cextitleaxis) )+
 	  scale_y_continuous("",limits = c(0, 0.5)) +
 	  scale_x_continuous("Sample size (N)")
   })
@@ -208,13 +210,15 @@ shinyServer(function(input, output) {
     }
 
 	# plot
+	my.labs <- list(bquote(alpha==.(Alpha1)) , bquote(alpha==.(Alpha2)) , bquote(alpha==.(Alpha3)) )
 	ggplot(data.frame(x=c(N1, N2)), aes(x)) +  
 		stat_function(fun=my_fun, args=list(Alpha=Alpha1),  aes(colour = paste("Alpha = ",Alpha1,sep="")), size = 1.5) +
 		stat_function(fun=my_fun, args=list(Alpha=Alpha2),  aes(colour = paste("Alpha = ",Alpha2,sep="")), size = 1.5) +
 		stat_function(fun=my_fun, args=list(Alpha=Alpha3),  aes(colour = paste("Alpha = ",Alpha3,sep="")), size = 1.5) +
-		theme( legend.position = c(.83, .9), legend.title=element_blank(), axis.text.x =element_text(color = "black", size = cextextaxis),axis.text.y =element_text(color = "black", size = cextextaxis),axis.title.x = element_text(face="bold", colour="black", size=cextitleaxis),axis.title.y = element_text(face="bold", colour="black", size=cextitleaxis) )+
-      scale_y_continuous("") + #,limits = c(0.5, 1.5)) +
-      scale_x_continuous("")
+		theme(legend.text=element_text(size=15), legend.position = c(.83, .9), legend.title=element_blank(), axis.text.x =element_text(color = "black", size = cextextaxis),axis.text.y =element_text(color = "black", size = cextextaxis),axis.title.x = element_text(face="bold", colour="black", size=cextitleaxis),axis.title.y = element_text(face="bold", colour="black", size=cextitleaxis) )+
+      scale_y_continuous("",limits = c(0.9, 1.1)) +
+      scale_x_continuous("") +
+	  scale_colour_manual(values=my_colors, labels=my.labs)
   })
 
 
@@ -243,13 +247,15 @@ shinyServer(function(input, output) {
 	}
 
 	# plot
+	my.labs <- list(bquote(alpha==.(Alpha1)) , bquote(alpha==.(Alpha2)) , bquote(alpha==.(Alpha3)) )
 	ggplot(data.frame(x=c(N1, N2)), aes(x)) +  
-		stat_function(fun=my_fun, args=list(Alpha=Alpha1),  aes(colour = paste("Alpha = ",Alpha1,sep="")), size = 1.5) +
-		stat_function(fun=my_fun, args=list(Alpha=Alpha2),  aes(colour = paste("Alpha = ",Alpha2,sep="")), size = 1.5) +
-		stat_function(fun=my_fun, args=list(Alpha=Alpha3),  aes(colour = paste("Alpha = ",Alpha3,sep="")), size = 1.5) +
-		theme( legend.position = c(.83, .9), legend.title=element_blank(), axis.text.x =element_text(color = "black", size = cextextaxis),axis.text.y =element_text(color = "black", size = cextextaxis),axis.title.x = element_text(face="bold", colour="black", size=cextitleaxis),axis.title.y = element_text(face="bold", colour="black", size=cextitleaxis) )+
+		stat_function(fun=my_fun, args=list(Alpha=Alpha1),  aes(colour = "Alpha1"), size = 1.5) +
+		stat_function(fun=my_fun, args=list(Alpha=Alpha2),  aes(colour = "Alpha2"), size = 1.5) +
+		stat_function(fun=my_fun, args=list(Alpha=Alpha3),  aes(colour = "Alpha3"), size = 1.5) +
+		theme( legend.text=element_text(size=15), legend.position = c(.83, .9), legend.title=element_blank(), axis.text.x =element_text(color = "black", size = cextextaxis),axis.text.y =element_text(color = "black", size = cextextaxis),axis.title.x = element_text(face="bold", colour="black", size=cextitleaxis),axis.title.y = element_text(face="bold", colour="black", size=cextitleaxis) )+
 	  scale_y_continuous("",limits = c(0, 0.5)) +
-	  scale_x_continuous("Sample size (N)")
+	  scale_x_continuous("Sample size (N)") +
+	  scale_colour_manual(values=my_colors, labels=my.labs)
   })
 
 
@@ -286,13 +292,15 @@ shinyServer(function(input, output) {
     }
 
 	# plot
+	my.labs <- list(bquote(lambda==.(LambdaPool1)) , bquote(lambda==.(LambdaPool2)) , bquote(lambda==.(LambdaPool3)) )
 	ggplot(data.frame(x=c(N1, N2)), aes(x)) +  
-		stat_function(fun=my_fun, args=list(LambdaPool=LambdaPool1), aes(colour = "Lambda = 5"), size = 1.5) +
-		stat_function(fun=my_fun, args=list(LambdaPool=LambdaPool2), aes(colour = "Lambda = 10"), size = 1.5) +
-		stat_function(fun=my_fun, args=list(LambdaPool=LambdaPool3), aes(colour = "Lambda3 = 100"), size = 1.5) +
-		theme( legend.position = c(.83, .9), legend.title=element_blank(), axis.text.x =element_text(color = "black", size = cextextaxis),axis.text.y =element_text(color = "black", size = cextextaxis),axis.title.x = element_text(face="bold", colour="black", size=cextitleaxis),axis.title.y = element_text(face="bold", colour="black", size=cextitleaxis) )+
-      scale_y_continuous("") + #,limits = c(0.5, 1.5)) +
-      scale_x_continuous("")
+		stat_function(fun=my_fun, args=list(LambdaPool=LambdaPool1), aes(colour = "Lambda1"), size = 1.5) +
+		stat_function(fun=my_fun, args=list(LambdaPool=LambdaPool2), aes(colour = "Lambda2"), size = 1.5) +
+		stat_function(fun=my_fun, args=list(LambdaPool=LambdaPool3), aes(colour = "Lambda3"), size = 1.5) +
+		theme(legend.text=element_text(size=15), legend.position = c(.83, .9), legend.title=element_blank(), axis.text.x =element_text(color = "black", size = cextextaxis),axis.text.y =element_text(color = "black", size = cextextaxis),axis.title.x = element_text(face="bold", colour="black", size=cextitleaxis),axis.title.y = element_text(face="bold", colour="black", size=cextitleaxis) )+
+      	scale_y_continuous("",limits = c(0.9, 1.1)) +
+      	scale_x_continuous("") +
+	  scale_colour_manual(values=my_colors, labels=my.labs)
   })
 
 
@@ -321,15 +329,16 @@ shinyServer(function(input, output) {
 	}
 
 	# plot
+	my.labs <- list(bquote(lambda==.(LambdaPool1)) , bquote(lambda==.(LambdaPool2)) , bquote(lambda==.(LambdaPool3)) )
 	ggplot(data.frame(x=c(N1, N2)), aes(x)) +  
-		stat_function(fun=my_fun, args=list(LambdaPool=LambdaPool1), aes(colour = "Lambda = 5"), size = 1.5) +
-		stat_function(fun=my_fun, args=list(LambdaPool=LambdaPool2), aes(colour = "Lambda = 10"), size = 1.5) +
-		stat_function(fun=my_fun, args=list(LambdaPool=LambdaPool3), aes(colour = "Lambda3 = 100"), size = 1.5) +
-		theme( legend.position = c(.83, .9), legend.title=element_blank(), axis.text.x =element_text(color = "black", size = cextextaxis),axis.text.y =element_text(color = "black", size = cextextaxis),axis.title.x = element_text(face="bold", colour="black", size=cextitleaxis),axis.title.y = element_text(face="bold", colour="black", size=cextitleaxis) )+
+		stat_function(fun=my_fun, args=list(LambdaPool=LambdaPool1), aes(colour = "Lambda1"), size = 1.5) +
+		stat_function(fun=my_fun, args=list(LambdaPool=LambdaPool2), aes(colour = "Lambda2"), size = 1.5) +
+		stat_function(fun=my_fun, args=list(LambdaPool=LambdaPool3), aes(colour = "Lambda3"), size = 1.5) +
+		theme(legend.text=element_text(size=15), legend.position = c(.83, .9), legend.title=element_blank(), axis.text.x =element_text(color = "black", size = cextextaxis),axis.text.y =element_text(color = "black", size = cextextaxis),axis.title.x = element_text(face="bold", colour="black", size=cextitleaxis),axis.title.y = element_text(face="bold", colour="black", size=cextitleaxis) )+
 	  	scale_y_continuous("",limits = c(0, 0.5)) +
-	  	scale_x_continuous("Sample size (N)") 
+	  	scale_x_continuous("Sample size (N)") +
+	  scale_colour_manual(values=my_colors, labels=my.labs) 
   })
-
 
 
 
