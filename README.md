@@ -25,7 +25,7 @@ runGitHub("Unics","Rode")
 
 Local installation
 --------
-Since local use shows problems for microsoft users, you can install the Genetic Map Comparator on your machine.
+You can install the app on your machine.
 
 **1.** Download the whole repository
 
